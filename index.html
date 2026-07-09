@@ -3,23 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy 23rd Birthday, Tehreem!</title>
-    <!-- Google Fonts for Editorial & Playful Typography combo -->
+    <title>Happy 23rd Birthday Tehreem</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-cream: #FAF6F0;
-            --maroon: #7A1C2E;
-            --soft-pink: #F7D6D8;
-            --blush: #F4A2A6;
-            --mint: #A8D5BA;
-            --dark-seed: #2B2B2B;
-            --font-editorial: 'Playfair Display', serif;
-            --font-bubbly: 'Fredoka', sans-serif;
-            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --bg-color: #faf8f5;
+            --text-main: #1a1a1a;
+            --text-muted: #666666;
+            --accent: #7a1c2e; /* Deep Maroon Accent */
+            --border-color: #e5dfd8;
         }
 
         * {
@@ -29,836 +23,346 @@
         }
 
         body {
-            background-color: var(--bg-cream);
-            color: var(--maroon);
-            font-family: var(--font-body);
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Particles and Custom Trail Canvas */
-        #trail-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 9999;
-        }
-
-        .floating-heart {
-            position: fixed;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.6;
-            animation: floatUp 8s linear infinite;
-        }
-
-        @keyframes floatUp {
-            0% { transform: translateY(105vh) translateX(0) scale(0.6); opacity: 0; }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
-            100% { transform: translateY(-10vh) translateX(100px) scale(1.2); opacity: 0; }
-        }
-
-        /* Scroll Animation Utility */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Multi-page System (Section Viewports) */
-        section {
-            min-height: 100vh;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            padding: 4rem 2rem;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            padding: 3rem 1.5rem;
-            position: relative;
-            z-index: 2;
         }
 
-        /* --- LANDING PAGE --- */
-        #landing {
-            text-align: center;
-            background: linear-gradient(180deg, var(--soft-pink) 0%, var(--bg-cream) 100%);
-        }
-
-        .hero-title {
-            font-family: var(--font-editorial);
-            font-size: 4rem;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        .hero-title span {
-            display: block;
-            font-family: var(--font-bubbly);
-            color: var(--blush);
-            font-size: 5rem;
-            text-shadow: 2px 2px 0px var(--maroon);
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 600;
-            margin-bottom: 2.5rem;
-        }
-
-        .start-btn {
-            background-color: var(--maroon);
-            color: var(--bg-cream);
-            font-family: var(--font-bubbly);
-            font-size: 1.5rem;
-            padding: 1rem 3rem;
-            border: 3px solid var(--maroon);
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(122, 28, 46, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        .start-btn::after {
-            content: ' 🍉';
-        }
-        .start-btn:hover {
-            transform: scale(1.05) rotate(-1deg);
-            background-color: var(--blush);
-            color: var(--maroon);
-            border-color: var(--maroon);
-        }
-
-        /* --- THE MESSAGE / SCROLL EXPERIENCE --- */
-        .card-container {
+        /* Portfolio Layout Container */
+        .portfolio-container {
             max-width: 750px;
             width: 100%;
-            background: #ffffff;
-            border: 2px solid var(--soft-pink);
-            border-radius: 24px;
-            padding: 2.5rem;
-            box-shadow: 0 10px 30px rgba(122, 28, 46, 0.04);
-            margin-bottom: 3rem;
         }
 
-        .card-title {
-            font-family: var(--font-editorial);
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px dashed var(--soft-pink);
-            padding-bottom: 0.5rem;
-        }
-
-        .letter-p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            color: #4A4A4A;
-        }
-
-        /* Polaroid / Modern Editorial Photo styling */
-        .polaroid-frame {
-            background: white;
-            padding: 1rem 1rem 2.5rem 1rem;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            border: 1px solid #eee;
-            max-width: 320px;
-            width: 100%;
-            margin: 2rem auto;
-            transform: rotate(-2deg);
-            transition: transform 0.3s ease;
-        }
-        .polaroid-frame:nth-child(even) {
-            transform: rotate(3deg);
-        }
-        .polaroid-frame:hover {
-            transform: rotate(0deg) scale(1.03);
-        }
-        .polaroid-frame img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-        .polaroid-caption {
-            font-family: var(--font-editorial);
-            font-style: italic;
+        header {
+            margin-bottom: 6rem;
             text-align: center;
-            margin-top: 1rem;
-            color: var(--maroon);
+        }
+
+        .title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
             font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-muted);
         }
 
-        /* Feature by Feature Section */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            width: 100%;
-            max-width: 1100px;
-            margin-top: 2rem;
+        /* Editorial Text Blocks */
+        .passage-block {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.45rem;
+            color: var(--text-main);
+            margin-bottom: 4rem;
+            white-space: pre-line; /* Keeps your natural message line breaks */
         }
-        .feature-card {
-            background: white;
-            border-radius: 20px;
-            padding: 1.5rem;
-            text-align: center;
-            border: 2px solid var(--soft-pink);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+
+        /* Inline Bullet points inside your passage */
+        .passage-list {
+            margin: 1.5rem 0;
+            list-style: none;
+            padding-left: 1rem;
         }
-        .feature-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-        }
-        .feature-card h4 {
-            font-family: var(--font-bubbly);
-            font-size: 1.3rem;
+
+        .passage-list li {
             margin-bottom: 0.5rem;
+            position: relative;
         }
 
-        /* Screenshot Proof Collage */
-        .collage-container {
-            position: relative;
-            height: 450px;
+        /* Sleek Portfolio Image Displays */
+        .portfolio-media {
+            margin: 4rem 0;
             width: 100%;
-            max-width: 600px;
-            margin: 2rem auto;
         }
-        .screenshot-el {
-            position: absolute;
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 6px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            width: 45%;
-            transition: transform 0.3s ease;
-        }
-        .screenshot-el img {
+
+        /* Single Standalone Photo Showcase */
+        .showcase-img {
             width: 100%;
+            height: auto;
             border-radius: 4px;
-            display: block;
-        }
-        .ss1 { top: 0; left: 5%; transform: rotate(-5deg); }
-        .ss2 { top: 40px; right: 5%; transform: rotate(6deg); }
-        .ss3 { bottom: 40px; left: 10%; transform: rotate(3deg); }
-        .ss4 { bottom: 0; right: 8%; transform: rotate(-4deg); }
-        .ss5 { top: 30%; left: 28%; transform: rotate(-1deg); z-index: 5; width: 48%;}
-        .screenshot-el:hover {
-            transform: scale(1.08) rotate(0deg);
-            z-index: 10;
+            border: 1px solid var(--border-color);
+            filter: grayscale(15%);
+            transition: filter 0.5s ease;
         }
 
-        /* Timeline Horizontal Scroll Section */
-        .timeline-scroll {
-            display: flex;
-            overflow-x: auto;
+        .showcase-img:hover {
+            filter: grayscale(0%);
+        }
+
+        /* Two Column Screenshot Placement */
+        .screenshot-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 2rem;
-            width: 100%;
-            padding: 2rem 1rem;
-            scrollbar-width: cubic-bezier(0.1, 1, 0.1, 1);
-        }
-        .timeline-scroll::-webkit-scrollbar {
-            height: 8px;
-        }
-        .timeline-scroll::-webkit-scrollbar-thumb {
-            background: var(--blush);
-            border-radius: 10px;
-        }
-        .timeline-item {
-            flex: 0 0 300px;
-            background: white;
-            border-radius: 20px;
-            border-left: 5px solid var(--maroon);
-            padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-        }
-        .timeline-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 1rem;
+            margin: 4rem 0;
         }
 
-        /* --- UNIQUE FLIP-CARDS & CIRCLES --- */
-        .flex-row-center {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        /* Three Column Screenshot Placement */
+        .screenshot-trio {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 1.5rem;
-            margin-top: 2rem;
-            width: 100%;
-            max-width: 900px;
+            margin: 4rem 0;
         }
 
-        /* Review Nickname Flip Cards */
-        .flip-card {
-            background-color: transparent;
-            width: 180px;
-            height: 100px;
-            perspective: 1000px;
-            cursor: pointer;
-        }
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-        }
-        .flip-card:hover .flip-card-inner, .flip-card.flipped .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-        .flip-front, .flip-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 15px;
-            padding: 10px;
-            font-family: var(--font-bubbly);
-            font-size: 1.1rem;
-        }
-        .flip-front {
-            background-color: var(--soft-pink);
-            color: var(--maroon);
-            border: 2px solid var(--blush);
-        }
-        .flip-back {
-            background-color: var(--maroon);
-            color: var(--bg-cream);
-            transform: rotateY(180deg);
-            font-style: italic;
-        }
-
-        /* Favorite Flower Blog Circles */
-        .flower-circle {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            background-color: white;
-            border: 3px dashed var(--blush);
+        .screenshot-item {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-editorial);
-            font-weight: bold;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease;
-        }
-        .flower-circle:hover {
-            transform: scale(1.1) rotate(5deg);
-            background-color: var(--soft-pink);
-        }
-        .flower-circle span {
-            font-size: 1.5rem;
-            margin-bottom: 4px;
         }
 
-        /* --- THE MIXED SCROLLING GALLERY --- */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
+        .screenshot-item img {
             width: 100%;
-            max-width: 1200px;
-            margin-top: 2rem;
+            height: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
         }
-        .gallery-item {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-            border: 1px solid var(--soft-pink);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .gallery-item:hover {
-            transform: translateY(-8px);
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 320px;
-            object-fit: cover;
-        }
-        .gallery-info {
-            padding: 1rem;
-            text-align: center;
-        }
-        .gallery-info h5 {
-            font-family: var(--font-bubbly);
-            font-size: 1.2rem;
-            color: var(--maroon);
-            margin-bottom: 0.2rem;
-        }
-        .gallery-info p {
+
+        .caption {
             font-size: 0.85rem;
+            color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--blush);
-            font-weight: 600;
+            letter-spacing: 1.5px;
+            margin-top: 0.75rem;
+            text-align: left;
         }
 
-        /* --- CONFIRMATION REVEAL PAGE --- */
-        #reveal-page {
-            background: linear-gradient(0deg, var(--soft-pink) 0%, var(--bg-cream) 100%);
+        footer {
+            margin-top: 8rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 4rem;
             text-align: center;
         }
-        .final-box {
-            max-width: 600px;
-            padding: 3rem;
-            background: white;
-            border: 4px solid var(--mint);
-            border-radius: 32px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-            position: relative;
-        }
-        .final-box::before {
-            content: '🍉';
-            position: absolute;
-            top: -25px;
-            left: calc(50% - 25px);
-            font-size: 3rem;
-        }
-        .celebrate-btn {
-            background-color: var(--mint);
-            color: #2b5c3d;
-            font-family: var(--font-bubbly);
-            font-size: 1.4rem;
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            margin-top: 2rem;
-            transition: transform 0.2s;
-        }
-        .celebrate-btn:hover {
-            transform: scale(1.05);
-        }
-        
-        .confetti-canvas {
-            position: absolute;
-            top:0; left:0; width:100%; height:100%;
-            pointer-events:none;
-            z-index: 10;
+
+        .footer-note {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--text-muted);
         }
 
-        /* Responsive Utilities */
-        @media(max-width: 768px) {
-            .hero-title { font-size: 2.8rem; }
-            .hero-title span { font-size: 3.5rem; }
-            .card-container { padding: 1.5rem; }
-            .collage-container { height: 350px; }
+        @media (max-width: 768px) {
+            body { padding: 2rem 1rem; }
+            .title { font-size: 2.5rem; }
+            .screenshot-pair, .screenshot-trio { grid-template-columns: 1fr; gap: 2rem; }
+            .passage-block { font-size: 1.3rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Watermelon Seed Trail Canvas -->
-    <canvas id="trail-canvas"></canvas>
+    <div class="portfolio-container">
+        
+        <header>
+            <p class="subtitle">CHAPTER XXIII</p>
+            <h1 class="title">For Tehreem</h1>
+        </header>
 
-    <!-- 1. LANDING SECTION -->
-    <section id="landing">
-        <h1 class="hero-title">Happy 23rd Birthday<br><span>Tehreem Fatima</span></h1>
-        <p class="hero-subtitle">Welcome to your personal universe</p>
-        <button class="start-btn" onclick="scrollToSection('intro-letter')">Tap to Open</button>
-    </section>
+        <!-- PART 1 -->
+        <div class="passage-block">
+            Harooo Tehreeem a happi happi happy birthday to you my girl. MashAllah you have turned 23 today and hundreds more birthdays to come in the future inshaAllah. In a few years hum ye sab sath celebrate karrhe hon gai inshaAllah with handwritten notes 😖 lekin for now I'll try to cover as much as possible in this passage. Kehne ko toh boht kuch hai magar abhi jitna hoskta I will.[cite: 1]
 
-    <!-- 2. OPENING LETTER -->
-    <section id="intro-letter" class="reveal">
-        <div class="card-container">
-            <h2 class="card-title">A Message For My Queen 👑</h2>
-            <!-- Paste Paragraph 1 Here -->
-            <p class="letter-p">
-                [Your beautiful opening text goes here. Mention her turning 23 and set the romantic tone for this webpage. Mix your English and Roman Urdu completely naturally right here.]
-            </p>
-            <p class="letter-p">
-                [Continue your flow here. Explain how today the entire world got a little brighter because it's your special day.]
-            </p>
-        </div>
-        <div class="polaroid-frame">
-            <!-- Uses your specific filename mapping for _1 (Cute) -->
-            <img src="photo1.jpg" alt="Tehreem Cute">
-            <div class="polaroid-caption">Starting our story... ✨</div>
-        </div>
-    </section>
-
-    <!-- 3. FEATURE BY FEATURE APPRECIATION -->
-    <section id="features" class="reveal">
-        <div class="card-container" style="max-width:900px; text-align:center; border-color: var(--mint);">
-            <h2 class="card-title" style="border-bottom-color: var(--mint);">Apki Prettiest Feature-by-Feature 🔎</h2>
-            <p class="letter-p">Every little detail about you is crafted perfectly. I couldn't choose a favorite part, so here is an appreciation of them all:</p>
+            You are the love of my life and the only person ive ever felt so deeply connected to ever, everyday with you feels like a gift in itself and then ap ki funny batein 
+            apki prettiest tareen photos[cite: 1]
         </div>
 
-        <div class="feature-grid">
-            <div class="feature-card reveal">
-                <img src="hair1.jpg" alt="Hair Asset">
-                <h4>Your Hair 💇‍♀️</h4>
-                <p>Perfect braids and effortless flows.</p>
+        <!-- ADORING HABITS PROOFS -->
+        <div class="screenshot-pair">
+            <div class="screenshot-item">
+                <img src="ss_adoring1.jpg" alt="Proof">
+                <div class="caption">Habit Logs // Adoring 01</div>
             </div>
-            <div class="feature-card reveal">
-                <img src="hair2.jpg" alt="Eyebrows Asset">
-                <h4>Your Eyebrows 🤨</h4>
-                <p>Expressive, perfect, and completely sharp.</p>
-            </div>
-            <div class="feature-card reveal">
-                <img src="eyes1.jpg" alt="Eyes Asset">
-                <h4>Your Eyes 👀</h4>
-                <p>Where I lose my tracking completely. Absolute warmth.</p>
-            </div>
-            <div class="feature-card reveal">
-                <img src="smile1.jpg" alt="Smile Asset">
-                <h4>Your Smile & Nose ☀️</h4>
-                <p>The literal definition of lighting up the day.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. DAILY HABITS COLLAGE (5 SCREENSHOTS) -->
-    <section id="proofs" class="reveal">
-        <div class="card-container" style="margin-bottom: 1rem;">
-            <h2 class="card-title">The Proof of Your Greatness 🧾</h2>
-            <p class="letter-p">
-                Whether you are being incredibly soft and adoring, showing off your absolute dominance and trademark savage energy, or handling tough days like a hardworking warrior—I have all the logs. 
-            </p>
-        </div>
-
-        <!-- Scattered Screenshot Card Layout for ~5 screenshots -->
-        <div class="collage-container">
-            <div class="screenshot-el ss1"><img src="ss_dash1.jpg" alt="Chat Evidence 1"></div>
-            <div class="screenshot-el ss2"><img src="ss_dash2.jpg" alt="Chat Evidence 2"></div>
-            <div class="screenshot-el ss3"><img src="ss_dash3.jpg" alt="Chat Evidence 3"></div>
-            <div class="screenshot-el ss4"><img src="ss_dash4.jpg" alt="Chat Evidence 4"></div>
-            <div class="screenshot-el ss5"><img src="ss_dash5.jpg" alt="Chat Evidence 5"></div>
-        </div>
-    </section>
-
-    <!-- 5. TIMELINE / STORY SCROLL -->
-    <section id="timeline" class="reveal" style="background-color: #fffafb;">
-        <div class="card-container" style="max-width:800px; margin-bottom:0;">
-            <h2 class="card-title">From the Start of January... 🗓️</h2>
-            <p class="letter-p">Our timeline of 100s of incidents, crazy incidents, beautiful memories, and digital dates. Swipe through our milestones:</p>
-        </div>
-
-        <!-- Horizontal scroll timeline gallery (10 Big Placeholders) -->
-        <div class="timeline-scroll">
-            <div class="timeline-item">
-                <img src="appreciation1.jpg" alt="Timeline Event 1">
-                <h4>Our Makeup Looks</h4>
-                <p>Styling and looking iconic together.</p>
-            </div>
-            <div class="timeline-item">
-                <img src="appreciation2.jpg" alt="Timeline Event 2">
-                <h4>The Google Meet Calls</h4>
-                <p>Hours turning into minutes talking to you.</p>
-            </div>
-            <div class="timeline-item">
-                <img src="appreciation3.jpg" alt="Timeline Event 3">
-                <h4>Pearl Map Incidents</h4>
-                <p>Clutching rounds and games in Valorant.</p>
-            </div>
-            <div class="timeline-item"><img src="appreciation4.jpg" alt="Event"><h4>Incidents & Walks</h4><p>Cherished memories.</p></div>
-            <div class="timeline-item"><img src="appreciation5.jpg" alt="Event"><h4>Late Night Teasing</h4><p>Pure unfiltered banter.</p></div>
-            <div class="timeline-item"><img src="appreciation6.jpg" alt="Event"><h4>Sweet Moments</h4><p>When you take care of me.</p></div>
-            <div class="timeline-item"><img src="appreciation7.jpg" alt="Event"><h4>Old Inside Jokes</h4><p>Things only we find hilarious.</p></div>
-            <div class="timeline-item"><img src="appreciation8.jpg" alt="Event"><h4>Unhinged Rants</h4><p>Savage energy preserved.</p></div>
-            <div class="timeline-item"><img src="appreciation9.jpg" alt="Event"><h4>The Distance Bridge</h4><p>Always connected, no matter what.</p></div>
-            <div class="timeline-item"><img src="appreciation10.jpg" alt="Event"><h4>The Future Horizon</h4><p>To many more years ahead.</p></div>
-        </div>
-    </section>
-
-    <!-- 6. NICKNAMES & FLOWER INTERACTIVES -->
-    <section id="interactives" class="reveal">
-        <div class="card-container" style="text-align: center;">
-            <h2 class="card-title">What I Call You (Tap to Reveal) 🏷️</h2>
-            <p class="letter-p">My review cards for your legendary titles.</p>
-            
-            <div class="flex-row-center">
-                <!-- Nickname Tap-Cards -->
-                <div class="flip-card" onclick="this.classList.toggle('flipped')">
-                    <div class="flip-card-inner">
-                        <div class="flip-front">Title #1</div>
-                        <div class="flip-back">Mommy ❤️</div>
-                    </div>
-                </div>
-                <div class="flip-card" onclick="this.classList.toggle('flipped')">
-                    <div class="flip-card-inner">
-                        <div class="flip-front">Title #2</div>
-                        <div class="flip-back">Meri jaan 🥺</div>
-                    </div>
-                </div>
-                <div class="flip-card" onclick="this.classList.toggle('flipped')">
-                    <div class="flip-card-inner">
-                        <div class="flip-front">Title #3</div>
-                        <div class="flip-back">Wifu 💍</div>
-                    </div>
-                </div>
-                <div class="flip-card" onclick="this.classList.toggle('flipped')">
-                    <div class="flip-card-inner">
-                        <div class="flip-front">Title #4</div>
-                        <div class="flip-back">Hazelnut heart throb</div>
-                    </div>
-                </div>
-                <div class="flip-card" onclick="this.classList.toggle('flipped')">
-                    <div class="flip-card-inner">
-                        <div class="flip-front">Title #5</div>
-                        <div class="flip-back">Dilbar janeman</div>
-                    </div>
-                </div>
-                <div class="flip-card" onclick="this.classList.toggle('flipped')">
-                    <div class="flip-card-inner">
-                        <div class="flip-front">Title #6</div>
-                        <div class="flip-back">Dil ka totuh</div>
-                    </div>
-                </div>
-                <div class="flip-card" onclick="this.classList.toggle('flipped')">
-                    <div class="flip-card-inner">
-                        <div class="flip-front">Title #7</div>
-                        <div class="flip-back">Sugar plum 🧁</div>
-                    </div>
-                </div>
-                <div class="flip-card" onclick="this.classList.toggle('flipped')">
-                    <div class="flip-card-inner">
-                        <div class="flip-front">Title #8</div>
-                        <div class="flip-back">Bbg ✨</div>
-                    </div>
-                </div>
-                <div class="flip-card" onclick="this.classList.toggle('flipped')">
-                    <div class="flip-card-inner">
-                        <div class="flip-front">Title #9</div>
-                        <div class="flip-back">Cutu bun 🐹</div>
-                    </div>
-                </div>
-                <div class="flip-card" onclick="this.classList.toggle('flipped')">
-                    <div class="flip-card-inner">
-                        <div class="flip-front">Title #10</div>
-                        <div class="flip-back">Baddie gee 🔥</div>
-                    </div>
-                </div>
+            <div class="screenshot-item">
+                <img src="ss_adoring2.jpg" alt="Proof">
+                <div class="caption">Habit Logs // Adoring 02</div>
             </div>
         </div>
 
-        <!-- Her Favorites Section -->
-        <div class="card-container" style="text-align: center; margin-top: 2rem; border-color: var(--blush);">
-            <h2 class="card-title">Your Favorite Blooms 🌸</h2>
-            <div class="flex-row-center">
-                <div class="flower-circle"><span>🪷</span>Lillies</div>
-                <div class="flower-circle"><span>💮</span>Lotus</div>
-                <div class="flower-circle"><span>🌹</span>Rose</div>
-                <div class="flower-circle"><span>🌼</span>Jasmine</div>
-                <div class="flower-circle"><span>🌷</span>Tulip</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. STORY MOODS GALLERY (10 IMAGES PROPERLY MAPPED) -->
-    <section id="mood-gallery" class="reveal">
-        <div class="card-container" style="max-width: 800px; text-align: center;">
-            <h2 class="card-title">The Complete Story Collection 📸</h2>
-            <p class="letter-p">Ranging from your absolute cutest states to stunningly glamorous profiles.</p>
+        <!-- PART 2 -->
+        <div class="passage-block">
+            <ul class="passage-list">
+                <li>-apka mujhe adore karna</li>
+                <li>-apka mere baray lolmai khyal karna like i am so fragile hajaha apka cutu si batein krke tuff</li>
+                <li>-act karna apka mujhe har second miss karna apka mehnat Karna apka aik sath future seek karna</li>
+                <li>-apka baat baat par MashAllah inshaAllah kehna namazein parhne apke ghar walay itna kam karatay u still do it without complaining itni hardworking ho sometimes get overwhelmed lekin phir main kab kam aun ga</li>[cite: 1]
+            </ul>
+            many many many things more that make me feel so deeply in love with your batein let alone aur bhi itne cheezein hain
+            like apki khoobsorat tareen photos
+            jitna main glaze karlon kam hai but time to do it
+            lets get into it top to bottom 🤩🗣️[cite: 1]
         </div>
 
-        <div class="gallery-grid">
-            <!-- Formatted directly by actual filename suffixes from sorting correction -->
-            <div class="gallery-item">
-                <img src="photo2.jpg" alt="Tehreem">
-                <div class="gallery-info"><h5>Vibe Style</h5><p>Cute 🧸</p></div>
+        <!-- HARDWORKING & SAVAGE HABITS PROOFS -->
+        <div class="screenshot-trio">
+            <div class="screenshot-item"><img src="ss_caring1.jpg" alt="Proof"><div class="caption">Habit Logs // Hardworking</div></div>
+            <div class="screenshot-item"><img src="ss_caring2.jpg" alt="Proof"><div class="caption">Habit Logs // Caring</div></div>
+            <div class="screenshot-item"><img src="ss_savage1.jpg" alt="Proof"><div class="caption">Habit Logs // Mommy / Wifu</div></div>
+        </div>
+
+        <!-- PART 3 -->
+        <div class="passage-block">
+            Sabse pehle toh apke bal omds insert the eid wali photo and the braids wali AAAAAAAAAAAA love them har time mere dimagh mai hotin.[cite: 1]
+        </div>
+
+        <!-- PORTRAIT SLOTS 1 & 2 -->
+        <div class="screenshot-pair">
+            <div class="screenshot-item">
+                <img src="eid_photo.jpg" alt="Eid Photo">
+                <div class="caption">Meri jaan</div>
             </div>
-            <div class="gallery-item">
-                <img src="photo3.jpg" alt="Tehreem">
-                <div class="gallery-info"><h5>Vibe Style</h5><p>Cute 🧸</p></div>
-            </div>
-            <div class="gallery-item">
-                <img src="photo1.jpg" alt="Tehreem">
-                <div class="gallery-info"><h5>Vibe Style</h5><p>Cute 🧸</p></div>
-            </div>
-            <div class="gallery-item">
-                <img src="photo4.jpg" alt="Tehreem">
-                <div class="gallery-info"><h5>Vibe Style</h5><p>Pretty ✨</p></div>
-            </div>
-            <div class="gallery-item">
-                <img src="photo5.jpg" alt="Tehreem">
-                <div class="gallery-info"><h5>Vibe Style</h5><p>Pretty ✨</p></div>
-            </div>
-            <div class="gallery-item">
-                <img src="photo6.jpg" alt="Tehreem">
-                <div class="gallery-info"><h5>Vibe Style</h5><p>Pretty ✨</p></div>
-            </div>
-            <div class="gallery-item">
-                <img src="photo7.jpg" alt="Tehreem">
-                <div class="gallery-info"><h5>Vibe Style</h5><p>Pretty ✨</p></div>
-            </div>
-            <div class="gallery-item">
-                <img src="photo8.jpg" alt="Tehreem">
-                <div class="gallery-info"><h5>Vibe Style</h5><p>Hot 🔥</p></div>
-            </div>
-            <div class="gallery-item">
-                <img src="photo9.jpg" alt="Tehreem">
-                <div class="gallery-info"><h5>Vibe Style</h5><p>Hot 🔥</p></div>
-            </div>
-            <div class="gallery-item">
-                <img src="photo10.jpg" alt="Tehreem">
-                <div class="gallery-info"><h5>Vibe Style</h5><p>Hot 🔥</p></div>
+            <div class="screenshot-item">
+                <img src="braids_photo.jpg" alt="Braids Photo">
+                <div class="caption">Tehrimine</div>
             </div>
         </div>
-    </section>
 
-    <!-- 8. FINAL CELEBRATION PAGE -->
-    <section id="reveal-page">
-        <div class="final-box reveal">
-            <h2 class="hero-title" style="font-size:3rem; margin-bottom: 1.5rem;">Happy 23rd, Tehreem!</h2>
-            <!-- Heartfelt Closing Note Placement -->
-            <p class="letter-p" style="font-style: italic; font-weight: 500;">
-                "First time creating a webpage... first time loving even."
-            </p>
-            <p class="letter-p">
-                You are my honest, loyal, loving, adoring, completely funny, and brilliant queen. May this 23rd year bring absolutely everything you have ever dreamed of.
-            </p>
-            <button class="celebrate-btn" onclick="triggerConfetti()">Click for Birthday Burst! 🎉</button>
-            <canvas id="confetti" class="confetti-canvas"></canvas>
+        <div class="passage-block">
+            Phir apke eyebrows maigot itne perfect like how can words even describe that.
+            Apki ankhen toh 😖😖😖😖 doobta hi zata hun main mujhe bacha Len ap, like azkal toh apki itni fine ash ankhen lag rhi hain and u keep blaming it on wtv idc battimzi compliment ni leti.
+            itni khubsurat cutu si naak h apci dil hi azata hai i don even get why u hate, u look so beautiful with it 🤩🤩🤩
+            Apciiiio smille this would explain this lwk (insert smile related pics)[cite: 1]
         </div>
-    </section>
 
-    <!-- ENGINE SCRIPTS -->
-    <script>
-        // Smooth scrolling function
-        function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        }
+        <!-- PORTRAIT SLOTS 3, 4 & 5 -->
+        <div class="screenshot-trio">
+            <div class="screenshot-item">
+                <img src="smile1.jpg" alt="Smile 1">
+                <div class="caption">Dilbar janeman</div>
+            </div>
+            <div class="screenshot-item">
+                <img src="smile2.jpg" alt="Smile 2">
+                <div class="caption">Dil ka totuh</div>
+            </div>
+            <div class="screenshot-item">
+                <img src="pretty1.jpg" alt="Pretty Portrait">
+                <div class="caption">Hazelnut heart throb</div>
+            </div>
+        </div>
 
-        // Scroll Reveal Trigger Setup
-        window.addEventListener('scroll', revealElements);
-        function revealElements() {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(el => {
-                const windowHeight = window.innerHeight;
-                const elementTop = el.getBoundingClientRect().top;
-                const elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    el.classList.add('active');
-                }
-            });
-        }
-        // Initialize once on open
-        revealElements();
+        <div class="passage-block">
+            this sums up your beautiful fuckin face i can't get enough of.
+            baki apki body toh itni perfect hot asf hai cant elaborate on that shrm aye gi is messaze mai likhte.[cite: 1]
+        </div>
 
-        // Background Floating Hearts Animation Loop
-        function createFloatingHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('floating-heart');
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = (Math.random() * 4 + 4) + 's';
-            heart.style.fontSize = (Math.random() * 15 + 12) + 'px';
-            document.body.appendChild(heart);
-            setTimeout(() => { heart.remove(); }, 8000);
-        }
-        setInterval(createFloatingHeart, 1200);
+        <!-- PORTRAIT SLOT 6 -->
+        <div class="portfolio-media">
+            <img class="showcase-img" src="pretty2.jpg" alt="Pretty Photo">
+            <div class="caption">Baddie gee</div>
+        </div>
 
-        // Watermelon seed mouse trail script
-        const canvas = document.getElementById('trail-canvas');
-        const ctx = canvas.getContext('2d');
-        let seeds = [];
+        <!-- PART 4 -->
+        <div class="passage-block">
+            Starting from the start in january that valorant game on pearl buahahah, instantly fell in love with how you sounded phir apne sara kam khud karke muzse socials liye and omds ussi time i fell in love with your smile how you look. Since then apse pyar toh barhta hi gaya hai gaya hai downs aye but i kept loving[cite: 1]
+        </div>
 
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+        <!-- FUNNY / BANTER HABITS PROOFS -->
+        <div class="screenshot-pair">
+            <div class="screenshot-item"><img src="ss_funny1.jpg" alt="Banter"><div class="caption">Habit Logs // Chaotic 01</div></div>
+            <div class="screenshot-item"><img src="ss_funny2.jpg" alt="Banter"><div class="caption">Habit Logs // Chaotic 02</div></div>
+        </div>
 
-        window.addEventListener('mousemove', (e) => {
-            if(Math.random() < 0.25) { // Throttled density
-                seeds.push({
-                    x: e.clientX,
-                    y: e.clientY,
-                    vx: (Math.random() - 0.5) * 2,
-                    vy: Math.random() * 2 + 1,
-                    alpha: 1,
-                    size: Math.random() * 3 + 3
-                });
-            }
-        });
+        <div class="passage-block">
+            Since our makeup, apke sath vc mai bethna, game khelna, anymes dekhna, apko cherna, sab is the best part of my day
+            When you dragged me into that vc ui hui
+            When you blush on the one liners and cant say nun
+            When you make time and fight to just spend some time together
+            EVERYTHING MEANS A LOT TO ME[cite: 1]
+        </div>
 
-        function drawSeeds() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for(let i = 0; i < seeds.length; i++) {
-                let s = seeds[i];
-                ctx.save();
-                ctx.beginPath();
-                ctx.fillStyle = `rgba(43, 43, 43, ${s.alpha})`; // Dark Seed color
-                // Draw little tear drop seed shapes
-                ctx.translate(s.x, s.y);
-                ctx.moveTo(0, -s.size);
-                ctx.quadraticCurveTo(s.size, s.size, 0, s.size);
-                ctx.quadraticCurveTo(-s.size, s.size, 0, -s.size);
-                ctx.fill();
-                ctx.restore();
+        <!-- ADORING CONTINUATION PROOFS -->
+        <div class="screenshot-trio">
+            <div class="screenshot-item"><img src="ss_adoring3.jpg" alt="Proof"><div class="caption">Habit Logs // Adoring 03</div></div>
+            <div class="screenshot-item"><img src="ss_adoring4.jpg" alt="Proof"><div class="caption">Habit Logs // Adoring 04</div></div>
+            <div class="screenshot-item"><img src="ss_adoring5.jpg" alt="Proof"><div class="caption">Habit Logs // Adoring 05</div></div>
+        </div>
 
-                s.x += s.vx;
-                s.y += s.vy;
-                s.alpha -= 0.015;
-            }
-            seeds = seeds.filter(s => s.alpha > 0);
-            requestAnimationFrame(drawSeeds);
-        }
-        drawSeeds();
+        <!-- PART 5 -->
+        <div class="passage-block">
+            How can I forget about the google meet buahahhaha, my fav video
+            Jitna sharma rhi thi ap and jitni pyari lag rhi thi
+            I even was covering up my face shrm sai kiunke itni interaction bhi kbhi nhi hui
+            Already watched that 100s of times
+            100s of incidents like these i keep daydreaming about and love so much.[cite: 1]
+        </div>
 
-        // Final Canvas Celebration Confetti Pop
-        function triggerConfetti() {
-            const cCanvas = document.getElementById('confetti');
-            const cCtx = cCanvas.getContext('2d');
-            cCanvas.width = cCanvas.parentElement.clientWidth;
-            cCanvas.height = cCanvas.parentElement.clientHeight;
-            
-            let particles = [];
-            const colors = ['#7A1C2E', '#F4A2A6', '#A8D5BA', '#FAF6F0', '#E25858'];
+        <!-- PORTRAIT SLOTS 7, 8 & 9 -->
+        <div class="screenshot-trio">
+            <div class="screenshot-item">
+                <img src="pretty3.jpg" alt="Portrait 3">
+                <div class="caption">Sugar plum</div>
+            </div>
+            <div class="screenshot-item">
+                <img src="pretty4.jpg" alt="Portrait 4">
+                <div class="caption">Cutu bun</div>
+            </div>
+            <div class="screenshot-item">
+                <img src="pretty5.jpg" alt="Portrait 5">
+                <div class="caption">Bbg</div>
+            </div>
+        </div>
 
-            for(let i=0; i<120; i++) {
-                particles.push({
-                    x: cCanvas.width / 2,
-                    y: cCanvas.height / 2 + 50,
-                    vx: (Math.random() - 0.5) * 12,
-                    vy: (Math.random() - 0.8) * 14,
-                    color: colors[Math.floor(Math.random() * colors.length)],
-                    size: Math.random() * 6 + 4,
-                    gravity: 0.25
-                });
-            }
+        <!-- CONTINUOUS SCREENSHOT LOGS -->
+        <div class="screenshot-trio">
+            <div class="screenshot-item"><img src="ss_savage2.jpg" alt="Proof"><div class="caption">Habit Logs // Savage 02</div></div>
+            <div class="screenshot-item"><img src="ss_savage3.jpg" alt="Proof"><div class="caption">Habit Logs // Savage 03</div></div>
+            <div class="screenshot-item"><img src="ss_savage4.jpg" alt="Proof"><div class="caption">Habit Logs // Savage 04</div></div>
+        </div>
 
-            function animateConfetti() {
-                cCtx.clearRect(0,0, cCanvas.width, cCanvas.height);
-                particles.forEach(p => {
-                    cCtx.fillStyle = p.color;
-                    cCtx.fillRect(p.x, p.y, p.size, p.size);
-                    p.x += p.vx;
-                    p.y += p.vy;
-                    p.vy += p.gravity;
-                });
-                particles = particles.filter(p => p.y < cCanvas.height);
-                if(particles.length > 0) requestAnimationFrame(animateConfetti);
-            }
-            animateConfetti();
-        }
-    </script>
+        <!-- PART 6 -->
+        <div class="passage-block">
+            You tehreem completely changed my life, my goals, everything
+            InshaAllah everything im working on and will do in the future will be to give you the best possible life and more than you ever imagined.
+            I know you keep worrying about how uncertain our future is, but mera pinkie promise hai kai its all my responsibility and i will own up to it. Dont worry one bit bout that, I love you from the bottom of my heart and always will.Havent changed one bit in 16 months and wont ever in the future, will keep loving you to the fullest.
+
+            InshaAllah more success to your job career till we ofc get married inshaAllah ASAP then ill spoil the fuh outta you bebe. Bas be supportive just like you already are and Allah pai bharosa rakhna duaen karni everythings worksout in the easiest and fastest way.
+
+            More power to you keep shining, stay happy, stay tuff, love you so so so much mwah.[cite: 1]
+        </div>
+
+        <!-- PORTRAIT SLOT 10 -->
+        <div class="portfolio-media">
+            <img class="showcase-img" src="pretty6.jpg" alt="Portrait 6">
+            <div class="caption">Zanumanu / Miret</div>
+        </div>
+
+        <!-- CLOSING HABIT SCREENSHOTS -->
+        <div class="screenshot-pair">
+            <div class="screenshot-item"><img src="ss_savage5.jpg" alt="Proof"><div class="caption">Habit Logs // Savage 05</div></div>
+            <div class="screenshot-item"><img src="ss_funny3.jpg" alt="Proof"><div class="caption">Habit Logs // Chaotic 03</div></div>
+        </div>
+        <div class="screenshot-trio">
+            <div class="screenshot-item"><img src="ss_funny4.jpg" alt="Proof"><div class="caption">Habit Logs // Chaotic 04</div></div>
+            <div class="screenshot-item"><img src="ss_funny5.jpg" alt="Proof"><div class="caption">Habit Logs // Chaotic 05</div></div>
+            <div class="screenshot-item"><img src="ss_caring3.jpg" alt="Proof"><div class="caption">Habit Logs // Caring 03</div></div>
+        </div>
+        <div class="screenshot-pair">
+            <div class="screenshot-item"><img src="ss_caring4.jpg" alt="Proof"><div class="caption">Habit Logs // Caring 04</div></div>
+            <div class="screenshot-item"><img src="ss_caring5.jpg" alt="Proof"><div class="caption">Habit Logs // Caring 05</div></div>
+        </div>
+
+        <!-- PART 7 -->
+        <div class="passage-block">
+            Its my first time creating a webpage,first time gifting a girl on her birthday, first time doing this much effort for someone, first time loving even.
+            I know this wont be perfect but its my best and InshaAllah its only uphill from now on[cite: 1]
+        </div>
+
+        <footer>
+            <p class="footer-note">Forever &amp; Always</p>
+        </footer>
+
+    </div>
+
 </body>
 </html>
